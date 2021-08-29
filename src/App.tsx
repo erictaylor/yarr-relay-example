@@ -12,13 +12,15 @@ function App() {
   return (
     <RelayEnvironmentProvider environment={RelayEnvironment}>
       <RouterProvider router={router}>
-        <ErrorBoundary FallbackComponent={() => <div>Something went wrong</div>}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <RouteRenderer pendingIndicator={<PendingIndicator />}/>
+        <ErrorBoundary
+          FallbackComponent={() => <div>Something went wrong</div>}
+        >
+          <Suspense fallback={<div>Loading...</div>}>
+            <RouteRenderer pendingIndicator={<PendingIndicator />} />
           </Suspense>
-          </ErrorBoundary>
+        </ErrorBoundary>
       </RouterProvider>
-      </RelayEnvironmentProvider>
+    </RelayEnvironmentProvider>
   );
 }
 

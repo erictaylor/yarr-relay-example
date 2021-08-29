@@ -26,7 +26,7 @@ export const User = ({ preloaded }: UserProps) => {
         }
       }
     `,
-    preloaded.query,
+    preloaded.query
   );
 
   return (
@@ -35,13 +35,15 @@ export const User = ({ preloaded }: UserProps) => {
 
       <Link to="/">Back to home</Link>
 
-      {data.user && (<>
-        <p>{data.user.id}</p>
-        <p>{data.user.login}</p>
-        <p>{data.user.name}</p>
-        <p>{data.user.bio}</p>
-        <p>{data.user.url as string}</p>
-      </>)}
+      {data.user && (
+        <>
+          <p>{data.user.id}</p>
+          <p>{data.user.login}</p>
+          <p>{data.user.name}</p>
+          <p>{data.user.bio}</p>
+          <p>{data.user.url as string}</p>
+        </>
+      )}
     </div>
   );
 };

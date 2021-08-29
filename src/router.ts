@@ -4,13 +4,13 @@ import { RelayEnvironment } from './RelayEnvironment';
 import HomeQuery from './pages/__generated__/HomeQuery.graphql';
 import UserQuery from './pages/__generated__/UserQuery.graphql';
 
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const routes = [
   {
     component: async () => {
       const module = await import('./pages/Home');
-      
+
       return module.Home;
     },
     path: '/',
@@ -30,14 +30,19 @@ const routes = [
         preload: ({ login }: { login: string }) => ({
           query: loadQuery(RelayEnvironment, UserQuery, { login }),
         }),
-      }
-    ]
+      },
+    ],
   },
   {
-    component: () => import('./pages/NotFound').then(module => module.NotFound),
+    component: () =>
+      import('./pages/NotFound').then((module) => module.NotFound),
     path: '*',
-  }
+  },
 ];
 
-// @ts-expect-error
-export const router = createBrowserRouter({ routes, awaitComponent: true, awaitPreload: true });
+export const router = createBrowserRouter({
+  // @ts-expect-error
+  routes,
+  awaitComponent: true,
+  awaitPreload: true,
+});

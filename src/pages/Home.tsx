@@ -29,8 +29,12 @@ export const Home = ({ preloaded }: HomeProps) => {
       <hr />
 
       <h3>Users</h3>
-      <p><Link to="/erictaylor">Eric Taylor</Link></p>
-      <p><Link to="/gajus">Gajus Kuizinas</Link></p>
+      <p>
+        <Link to="/erictaylor">Eric Taylor</Link>
+      </p>
+      <p>
+        <Link to="/gajus">Gajus Kuizinas</Link>
+      </p>
     </div>
   );
 };
