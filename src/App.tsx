@@ -6,7 +6,7 @@ import { RouteRenderer, RouterProvider } from 'yarr';
 import { router } from './router';
 import { ErrorBoundary } from 'react-error-boundary';
 
-
+const PendingIndicator = () => <div>Pending...</div>;
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <RouterProvider router={router}>
         <ErrorBoundary FallbackComponent={() => <div>Something went wrong</div>}>
         <Suspense fallback={<div>Loading...</div>}>
-          <RouteRenderer />
+          <RouteRenderer pendingIndicator={<PendingIndicator />}/>
           </Suspense>
           </ErrorBoundary>
       </RouterProvider>
